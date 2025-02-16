@@ -1,62 +1,53 @@
-
 #include <iostream>
 #include <string>
 #include <cstdlib>
 #include <list>
+#include "utils/checkGuess.hpp"
+#include "utils/checkWordInput.hpp"
+#include "utils/checkGuessNumInput.hpp"
 
 
 using namespace std;
-
+//array containing all the possible mystery words
 string listOfWords[] = {"place", "party", "cloud", "pinky", "stair", "heart"};
-string wordGuessed;
 int guessNum;
-string correctLetters, wrongPlaceLetters, guess, mystery;
+string guess;
 
 
-
-void pickWord() {
+int main() {
+  //getting a random word from listOfWords array
     long elapsedSeconds = time(nullptr);
     srand(elapsedSeconds);
     int randNum = rand()%size(listOfWords);
-    mystery = listOfWords[randNum];
-}
+    string mystery = listOfWords[randNum];
 
+    //intro to the game and how it works
+    cout << "Hello! Welcome to a word guessing game!" << endl;
+    cout << "Here is how this game will work: " << endl;
+    cout << "-You get a certain number of guesses, and must guess the mystery word before you run out of guesses." << endl;
+    cout << "-After each guess, you will be told what letters were in the right spot, and what letters are in the word" << endl;
+    cout << endl;
+    cout << "You have the option to chose the difficulty of this game by choosing how many guesses you get!" << endl;
 
-void checkGuess(){
-    while(guessNum < 5){
-        for(int i = 0; i < 5; i++) {
-            if(guess.substr(i, 1) == mystery.substr(i, 1)) {
-                correctLetters +=  guess.substr(i,1) + " + ";
+    //getting user to pick how many guesses they would like
+    guessNum = checkGuessNumInput();
 
-            } else if (mystery.find(guess.substr(i, 1)) != string::npos) {
-                wrongPlaceLetters += guess.substr(i,1) + " + ";
-            }
+    //actual game play, looping until user guesses word or till they run out of guesses
+    while(guessNum > 0) {
+
+        cout << mystery << endl;
+        guess = checkWordInput(); //making sure user input is vaild
+        if (checkGuess(guess, mystery)) { //checking if user guessed correctly
+            cout << "you got it! the mystery word was: " << mystery << endl;
+            break;
         }
 
-        if(correctLetters.length() == 10){
-            correctLetters = "";
-        }
-
-        cout << "These are the letters you got correct: " << correctLetters <<  endl;
-        cout << "These are the letters you got correct, but are in the wrong place "<< wrongPlaceLetters << endl;
-
-        guessNum++;
-        correctLetters = "";
-        wrongPlaceLetters = "";
+        guessNum--;
     }
-}
+    if (guessNum == 0) { //only print of user ran out of guesses
+        cout << "You ran out of guesses. The word was: " << mystery << endl;
+    }
 
-int main() {
-
-    pickWord();
-
-    cout << mystery << endl;
-
-
-    cout<< "Please write your 5 letter word guess: " << endl;
-    cin>>guess;
-
-    checkGuess();
 
     return 0;
 }
