@@ -9,7 +9,14 @@
 
 using namespace std;
 //array containing all the possible mystery words
-string listOfWords[] = {"place", "party", "cloud", "pinky", "stair", "heart"};
+string listOfWords[] = {"place", "party", "cloud", "pinky", "stair", "heart", "about", "alert", "argue", "beach", "above", "alike", "arise", "began"
+, "begin", "abuse", "bench", "black", "blame", "blind", "cover", "craft", "crush", "crash", "crime", "crowd", "clean", "clear", "cause", "close", "curve"
+, "daily", "death", "dance" ,"dealt", "debut", "delay", "depth", "doing", "doubt", "dozen", "draft", "drawn", "dream", "entry", "event", "exact", "exist", "extra", "faith", "false" ,"forth", "forty", "found"
+,"frame", "frank", "fraud", "guest", "guide", "guess", "grown", "guard", "group", "happy", "hence", "hotel", "human", "horse", "heavy", "index", "inner", "input", "ideal", "issue", "irony", "juice", "joint", "judge"
+, "known", "local", "loose", "logic", "lower", "lucky", "lunch", "lying", "learn", "layer", "magic", "major", "maker", "march", "music", "mouse", "moral", "noted", "noise", "north"
+, "nurse", "novel", "newly", "ocean", "often", "order", "other","ought", "paint", "paper"," peace", "phone", "ratio", "queen", "reach", "ready", "refer", "right", "quick", "shall", "sense", "serve","seven","shall","shape","share"
+,"title","times","tired","today","topic","total","taken","trend","trial","until","unity","upper","wound","write","wrong","wrote","wheel","young","youth","virus", "visit", "video","wound","would","vital","voice"};
+
 int guessNum;
 string guess;
 
@@ -35,7 +42,6 @@ int main() {
     //actual game play, looping until user guesses word or till they run out of guesses
     while(guessNum > 0) {
 
-        cout << mystery << endl;
         guess = checkWordInput(); //making sure user input is vaild
         if (checkGuess(guess, mystery)) { //checking if user guessed correctly
             cout << "you got it! the mystery word was: " << mystery << endl;

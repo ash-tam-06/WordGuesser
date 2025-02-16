@@ -13,7 +13,7 @@ int checkGuessNumInput() {
         if(cin.fail() || (guessNum > 10 || guessNum < 3)){ //making sure user input is an int between 3 to 10
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(),'\n');
-            cout<< "invalid input. please enter a valid age.\n";
+            cout<< "invalid input. please enter a valid guess num.\n";
         }else{
             cin.ignore(numeric_limits<streamsize>:: max(),'\n');
             break;
