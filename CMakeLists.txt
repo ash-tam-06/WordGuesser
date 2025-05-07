@@ -2,6 +2,14 @@ cmake_minimum_required(VERSION 3.30)
 project(WordGuesser)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Optional: ensure compatibility with MSVC runtime
+if(MSVC)
+    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
 
 include(include)
 
