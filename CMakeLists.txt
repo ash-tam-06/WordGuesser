@@ -11,13 +11,12 @@ if(MSVC)
     set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif()
 
+include_directories(include)
+
 add_executable(WordGuesser main.cpp
         src/checkGuess.cpp
         src/checkGuessNumInput.cpp
         src/checkWordInput.cpp)
-
-
-target_include_directories(WordGuesser PRIVATE include)
 
 include(FetchContent)
 FetchContent_Declare(
