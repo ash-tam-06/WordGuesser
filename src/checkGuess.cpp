@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 bool checkGuess(string guess, string mystery){
     string correctLetters, wrongPlaceLetters;
     int numCorrect = 0; //variable to see if all letters are correctly placed
