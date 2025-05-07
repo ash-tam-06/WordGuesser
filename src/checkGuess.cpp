@@ -8,7 +8,13 @@ using namespace std;
 bool checkGuess(string guess, string mystery){
     string correctLetters, wrongPlaceLetters;
     int numCorrect = 0; //variable to see if all letters are correctly placed
-    for(int i = 0; i < 5; i++) { //looping by number of letters in word
+
+    //checking to make sure string guess is the same length as mystery
+    if (guess.length() != mystery.length()) {
+        return false;
+    }
+
+    for(int i = 0; i < mystery.length(); i++) { //looping by number of letters in word
         if(guess.substr(i, 1) == mystery.substr(i, 1)) { //checking if letter is correctly placed in guess
             correctLetters +=  guess.substr(i,1) + " + ";
             numCorrect++;
@@ -17,7 +23,7 @@ bool checkGuess(string guess, string mystery){
         }
     }
 
-    if(numCorrect == 5) { //if see if guess matched mystery word
+    if(numCorrect == mystery.length()) { //if see if guess matched mystery word
         return true;
     }
     cout << "These are the letters you got correct: " << correctLetters <<  endl;
