@@ -12,7 +12,10 @@ string checkWordInput() { //making sure user only inputs 5 letter string
         isValid = true;
         cout<< "Please write your 5 letter word guess: " << endl;
         getline(cin, guess);
-        guess = toLower(guess);
+        for (char& c : guess) {
+            c = tolower(c);//
+        }
+ 
         if(guess.empty()){ //error handeling to make sure input is not empty
             cout << "invalid input, please enter a non empty string\n" << endl;
             isValid = false;
