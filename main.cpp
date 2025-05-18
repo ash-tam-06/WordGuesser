@@ -2,9 +2,9 @@
 #include <string>
 #include <cstdlib>
 #include <list>
-#include "utils/checkGuess.hpp"
-#include "utils/checkWordInput.hpp"
-#include "utils/checkGuessNumInput.hpp"
+#include "include/checkGuess.hpp"
+#include "include/checkWordInput.hpp"
+#include "include/checkGuessNumInput.hpp"
 
 
 using namespace std;
