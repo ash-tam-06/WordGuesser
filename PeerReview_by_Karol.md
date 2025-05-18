@@ -5,8 +5,7 @@ folder it is correct. I had to change it to include folder.
 The function seperations was very clear. The only thing I would change would be using strings as global variables. I would suggest using a text file and 
 reading from that text file.
 # Test Covrage
-The tests were weak. They didn't cover much cases. The function toLower didn't work. For the round input, input like, 4bc worked.  For my word guess input 
-like, FLAKE, didnt work. Test cases didn't cover that. Test cases covered a good amount of cases. 
+Test cases covered a good amount of cases, but missed a few. The function toLower didn't work. For the round input, input like, 4bc worked.  For my word guess input like, FLAKE, didnt work. Test cases didn't cover that.
 # Bugs or Gaps Identified
 Again toLower() function didn't work. Input like 4bc worked. And input like FLAKE didn't work. I would suggest makeing a for-range based for loop to convert each character
 to lowercase with tolower() function.
