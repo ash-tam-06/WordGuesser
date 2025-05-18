@@ -7,12 +7,13 @@ reading from that text file.
 # Test Covrage
 Test cases covered a good amount of cases, but missed a few. The function toLower didn't work. For the round input, input like, 4bc worked.  For my word guess input like, FLAKE, didnt work. Test cases didn't cover that.
 # Bugs or Gaps Identified
-Again toLower() function didn't work. Input like 4bc worked. And input like FLAKE didn't work. I would suggest makeing a for-range based for loop to convert each character
+Again toLower() function didn't work. Input like 4bc worked. And input like FLAKE didn't work. I would suggest making a for-range based for loop to convert each character
 to lowercase with tolower() function.
 # Test Output & Clarity
 The test cases were clear and overall code was very clear and neat. Interacting with program was very easy to understand. 
 # 5 New Google Test cases
-`#include <gtest/gtest.h>
+```
+#include <gtest/gtest.h>
 #include "../include/checkGuess.hpp"
 #include "../include/checkGuessNumInput.hpp"
 #include "../include/checkWordInput.hpp"
@@ -67,6 +68,7 @@ TEST(CheckGuessTest,InvalidRoundInput) {
 TEST(CheckGuessTest, ValidRoundInput) {
     EXPECT_EQ(validRoundsInput("7"), 7);
     EXPECT_EQ(validRoundsInput("3"), 3);
-}`
+}
+```
 # Architecture & Design Feedback
 All in all, great program. I would defenetily suggest using a text file and creting a for-range based for loop to convert string to lowercase. 
